@@ -4,70 +4,68 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.SOLID.Controlador.InventarioController" spacing="10.0">
+<VBox xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.SOLID.Controlador.InventarioController"
+      spacing="12.0"
+      alignment="TOP_LEFT"
+      style="-fx-background-color: #f9f9f9;">
+
   <padding>
-    <Insets topRightBottomLeft="10.0" />
+    <Insets top="15" right="20" bottom="15" left="20"/>
   </padding>
-  <children>
-    <Label text="Registrar Entrada de Inventario" />
-    <HBox spacing="10.0">
-      <children>
-        <Label text="Proveedor:" minWidth="120.0" />
-        <ComboBox fx:id="cmbProveedores" prefWidth="250.0" promptText="Seleccione un proveedor" />
-        <Button onAction="#mostrarCrearProveedor" text="Nuevo Proveedor" />
-      </children>
-    </HBox>
 
-    <TitledPane text="Proveedor" expanded="false" fx:id="tpCrearProveedor">
-      <content>
-        <VBox spacing="8.0">
-          <padding>
-            <Insets topRightBottomLeft="10.0" />
-          </padding>
-          <children>
-            <TextField fx:id="txtProvNit" promptText="NIT" />
-            <TextField fx:id="txtProvNombre" promptText="Nombre" />
-            <TextField fx:id="txtProvContacto" promptText="Contacto" />
-            <TextField fx:id="txtProvEmail" promptText="Email" />
-            <TextField fx:id="txtProvTelefono" promptText="Teléfono" />
-            <HBox spacing="8.0">
-              <children>
-                <Button onAction="#crearProveedor" text="Crear" />
-                <Button onAction="#actualizarProveedor" text="Actualizar" />
-                <Button onAction="#eliminarProveedor" text="Eliminar" />
-                <Button onAction="#activarProveedor" text="Activar" />
-                <Button onAction="#inactivarProveedor" text="Inactivar" />
-              </children>
-            </HBox>
-          </children>
-        </VBox>
-      </content>
-    </TitledPane>
 
-    <HBox spacing="10.0">
-      <children>
-        <Label text="Producto:" minWidth="120.0" />
-        <ComboBox fx:id="cmbProductoEntrada" prefWidth="250.0" />
-        <Label text="Cantidad:" />
-        <Spinner fx:id="spnCantidadEntrada" prefWidth="80.0" />
-        <Button onAction="#confirmarEntradaInventario" text="Confirmar Entrada" />
-      </children>
-    </HBox>
-    <Label fx:id="lblResultadoEntrada" text="" />
+  <Label text="Gestión de Inventario"
+         style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333333;"/>
 
-    <TitledPane text="Productos en Inventario" expanded="true">
-      <content>
-        <TableView fx:id="tblProductosInv" prefHeight="260.0">
-          <columns>
-            <TableColumn fx:id="colInvSku" text="SKU" prefWidth="140.0" />
-            <TableColumn fx:id="colInvNombre" text="Producto" prefWidth="260.0" />
-            <TableColumn fx:id="colInvPrecio" text="Precio" prefWidth="140.0" />
-            <TableColumn fx:id="colInvStock" text="Stock" prefWidth="120.0" />
-          </columns>
-        </TableView>
-      </content>
-    </TitledPane>
-  </children>
+
+  <TitledPane text="Registrar Entrada de Inventario" expanded="true">
+    <content>
+      <VBox spacing="10">
+        <HBox spacing="10" alignment="CENTER_LEFT">
+          <Label text="Proveedor:" minWidth="100"/>
+          <ComboBox fx:id="cmbProveedor" prefWidth="250" promptText="Seleccione un proveedor"/>
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+          <Label text="Producto:" minWidth="100"/>
+          <ComboBox fx:id="cmbProducto" prefWidth="250" promptText="Seleccione un producto"/>
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+          <Label text="Cantidad:" minWidth="100"/>
+          <TextField fx:id="txtCantidad" prefWidth="120" promptText="Ingrese cantidad"/>
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+          <Button fx:id="btnRegistrarEntrada"
+                  text="Registrar Entrada"
+                  onAction="#registrarEntrada"
+                  style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+          <Button text="Consultar Stock"
+                  onAction="#consultarStock"
+                  style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </HBox>
+      </VBox>
+    </content>
+  </TitledPane>
+
+
+  <TitledPane text="Movimientos de Inventario" expanded="true">
+    <content>
+      <TableView fx:id="tblMovimientos" prefHeight="350">
+        <columns>
+          <TableColumn fx:id="colId" text="ID Movimiento" prefWidth="140"/>
+          <TableColumn fx:id="colTipo" text="Tipo" prefWidth="100"/>
+          <TableColumn fx:id="colFecha" text="Fecha" prefWidth="160"/>
+          <TableColumn fx:id="colSku" text="SKU Producto" prefWidth="140"/>
+          <TableColumn fx:id="colCantidad" text="Cantidad" prefWidth="100"/>
+          <TableColumn fx:id="colReferencia" text="Referencia" prefWidth="200"/>
+        </columns>
+      </TableView>
+    </content>
+  </TitledPane>
+
 </VBox>
-
-

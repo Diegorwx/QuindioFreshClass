@@ -1,10 +1,13 @@
 package co.edu.uniquindio.SOLID.utils;
 
 import co.edu.uniquindio.SOLID.Model.Cliente;
+import co.edu.uniquindio.SOLID.Model.DTO.EmpleadoDTO;
+import co.edu.uniquindio.SOLID.Model.DTO.ProveedorDTO;
 import co.edu.uniquindio.SOLID.Model.Empleado;
 import co.edu.uniquindio.SOLID.Model.Minimercado;
 import co.edu.uniquindio.SOLID.Model.Producto;
-import co.edu.uniquindio.SOLID.Model.Proveedor;
+import co.edu.uniquindio.SOLID.Service.Fachadas.EmpresaAdminFacade;
+import co.edu.uniquindio.SOLID.Service.Fachadas.InventarioFacade;
 
 public class AppSetup {
 
@@ -89,17 +92,19 @@ public class AppSetup {
     }
 
     public void inicializarProveedores() {
-        Minimercado minimercado = Minimercado.getInstancia();
-        minimercado.agregarProveedor(new Proveedor("900111222-3", "Cafés del Quindío S.A.", "Diana Torres", "compras@cafesquindio.com", "606-7440001"));
-        minimercado.agregarProveedor(new Proveedor("901234567-8", "Agrofrutas del Eje", "Luis Mejía", "ventas@agrofrutas.com", "606-7331122"));
-        minimercado.agregarProveedor(new Proveedor("900765432-1", "Lácteos Andinos", "María Rojas", "contacto@lacteosandinos.co", "606-7213344"));
+        InventarioFacade inventarioFacade = new InventarioFacade();
+
+        inventarioFacade.crearProveedor(new ProveedorDTO("900111222-3", "Cafés del Quindío S.A.", "Diana Torres", "compras@cafesquindio.com", "606-7440001", true));
+        inventarioFacade.crearProveedor(new ProveedorDTO("901234567-8", "Agrofrutas del Eje", "Luis Mejía", "ventas@agrofrutas.com", "606-7331122", true));
+        inventarioFacade.crearProveedor(new ProveedorDTO("900765432-1", "Lácteos Andinos", "María Rojas", "contacto@lacteosandinos.co", "606-7213344", true));
     }
 
     public void inicializarEmpleados() {
-        Minimercado minimercado = Minimercado.getInstancia();
-        minimercado.agregarEmpleado(new Empleado("EMP-001", "Julian", Empleado.Rol.CAJERO));
-        minimercado.agregarEmpleado(new Empleado("EMP-002", "Andrea", Empleado.Rol.BODEGUERO));
-        minimercado.agregarEmpleado(new Empleado("EMP-003", "Pablo", Empleado.Rol.CAJERO));
+        EmpresaAdminFacade empresaAdminFacade = new EmpresaAdminFacade();
+
+        empresaAdminFacade.crearEmpleado(new EmpleadoDTO("EMP-001", "Julian", Empleado.Rol.CAJERO, true));
+        empresaAdminFacade.crearEmpleado(new EmpleadoDTO("EMP-002", "Andrea", Empleado.Rol.BODEGUERO, true));
+        empresaAdminFacade.crearEmpleado(new EmpleadoDTO("EMP-003", "Pablo", Empleado.Rol.CAJERO, true));
     }
 
 }

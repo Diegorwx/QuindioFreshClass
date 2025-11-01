@@ -23,17 +23,36 @@ public class ProductoDTO {
         setPrecio(precio);
     }
 
-    public String getSku() { return sku.get(); }
-    public String getNombre() { return nombre.get(); }
-    public double getPrecio() { return precio.get(); }
+    public String getSku() {
+        return sku.get();
+    }
 
-    public void setSku(String sku) { this.sku.set(sku); }
-    public void setNombre(String nombre) { this.nombre.set(nombre); }
-    public void setPrecio(double precio) { this.precio.set(precio); }
+    public void setSku(String sku) {
+        this.sku.set(sku);
+    }
 
-    public StringProperty skuProperty() { return sku; }
-    public StringProperty nombreProperty() { return nombre; }
-    public DoubleProperty precioProperty() { return precio; }
+    public String getNombre() {
+        return nombre.get();
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre.set(nombre);
+    }
+
+    public double getPrecio() {
+        return precio.get();
+    }
+
+    public void setPrecio(double precio) {
+        this.precio.set(precio);
+    }
+
+    public StringProperty skuProperty() {
+        return sku; }
+    public StringProperty nombreProperty() {
+        return nombre; }
+    public DoubleProperty precioProperty() {
+        return precio; }
 
     @Override
     public String toString() {

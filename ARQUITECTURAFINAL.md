@@ -3,9 +3,8 @@
 ## Diagrama de Clases Principal
 
 ```
-
 ┌─────────────────────────────────────────────────────────────────┐
-│                        PEDIDO FACADE                           │
+│                     MINIMERCADO FACADE                           │
 │  ┌─────────────────────────────────────────────────────────┐   │
 │  │ + procesarPedidoCompleto()                             │   │
 │  │ + crearPedido()                                        │   │
@@ -15,7 +14,7 @@
                                 │
                                 ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                      PEDIDO BUILDER                            │
+│                         MINIMERCADO                           │
 │  ┌─────────────────────────────────────────────────────────┐   │
 │  │ + conCodigo()                                          │   │
 │  │ + conCliente()                                         │   │
@@ -169,7 +168,7 @@ PedidoFacade
 │  │ ItemPedidoDTO   │  │ ProductoDTO     │                 │
 │  │ ResumenPedidoDTO│  │                 │                 │
 │  └─────────────────┘  └─────────────────┘                 │
-└───────────────────────────────────────────────────────────┘
+└─────────────────────────────────────────────────────────────┘
 ```
 
 ## Principios SOLID Aplicados
@@ -183,9 +182,9 @@ PedidoFacade
 ### Open/Closed Principle (OCP)
 - El sistema está abierto para extensión pero cerrado para modificación
 - Para agregar nuevos métodos de pago, solo se necesita:
-  - Crear nueva clase que implemente MetodoPago
-  - Agregar caso en PagoFactory
-  - No modificar código existente
+    - Crear nueva clase que implemente MetodoPago
+    - Agregar caso en PagoFactory
+    - No modificar código existente
 
 ### Liskov Substitution Principle (LSP)
 - Todas las implementaciones de MetodoPago son intercambiables
@@ -230,4 +229,3 @@ El sistema está diseñado para ser fácilmente extensible:
 4. **Reutilización**: Los componentes pueden ser reutilizados
 5. **Flexibilidad**: Fácil cambiar implementaciones sin afectar el resto del sistema
 6. **Separación de Responsabilidades**: Cada capa tiene su propósito específico
-

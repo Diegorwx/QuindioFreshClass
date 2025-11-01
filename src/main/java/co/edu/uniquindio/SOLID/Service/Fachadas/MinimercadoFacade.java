@@ -12,10 +12,7 @@ import co.edu.uniquindio.SOLID.Service.CatalogoProductosService;
 
 import java.util.List;
 
-/**
- * Facade que actúa como punto de entrada
- * Delega toda la lógica a los servicios correspondientes
- */
+
 public class MinimercadoFacade {
     
     private final ClienteService clienteService;
@@ -29,9 +26,7 @@ public class MinimercadoFacade {
         this.pedidoService = new PedidoService(catalogoProductosService);
     }
     
-    // ========== DELEGACIÓN SIMPLE A SERVICIOS ==========
-    
-    // Clientes
+
     public List<ClienteDTO> obtenerTodosLosClientes() {
         return clienteService.obtenerTodosLosClientes();
     }
@@ -56,7 +51,7 @@ public class MinimercadoFacade {
         return clienteService.existeCliente(cedula);
     }
     
-    // Productos
+
     public List<ProductoDTO> obtenerTodosLosProductos() {
         return productoService.obtenerTodosLosProductos();
     }

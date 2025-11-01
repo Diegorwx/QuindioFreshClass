@@ -27,5 +27,3 @@ public class Empleado {
 
     public void cambiarRol(Rol nuevoRol) { this.rol = nuevoRol; }
 }
-
-

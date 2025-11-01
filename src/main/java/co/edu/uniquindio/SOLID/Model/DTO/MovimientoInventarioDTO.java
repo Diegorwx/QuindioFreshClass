@@ -1,30 +1,31 @@
-package co.edu.uniquindio.SOLID.Model;
+package co.edu.uniquindio.SOLID.Model.DTO;
 
 import java.time.LocalDateTime;
 
-public class MovimientoInventario {
-    public enum Tipo { ENTRADA }
+public class MovimientoInventarioDTO {
 
     private String id;
-    private Tipo tipo;
+    private String tipo; // "ENTRADA", etc.
     private LocalDateTime fecha;
-    private Producto producto;
+    private String skuProducto;
     private int cantidad;
     private String referencia;
 
-    public MovimientoInventario(String id, Tipo tipo, Producto producto, int cantidad, String referencia) {
+    public MovimientoInventarioDTO(String id, String tipo, LocalDateTime fecha, String skuProducto, int cantidad, String referencia) {
         this.id = id;
         this.tipo = tipo;
-        this.fecha = LocalDateTime.now();
-        this.producto = producto;
+        this.fecha = fecha;
+        this.skuProducto = skuProducto;
         this.cantidad = cantidad;
         this.referencia = referencia;
     }
 
     public String getId() { return id; }
-    public Tipo getTipo() { return tipo; }
+    public String getTipo() { return tipo; }
     public LocalDateTime getFecha() { return fecha; }
-    public Producto getProducto() { return producto; }
+    public String getSkuProducto() { return skuProducto; }
     public int getCantidad() { return cantidad; }
     public String getReferencia() { return referencia; }
 }
+
+

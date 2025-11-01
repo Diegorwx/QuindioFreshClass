@@ -12,7 +12,8 @@ public class PedidoDTO {
     
     public PedidoDTO() {}
     
-    public PedidoDTO(String codigo, String idCliente, List<ItemPedidoDTO> itemsPedido, String direccionEnvio) {
+    public PedidoDTO(String codigo, String idCliente, List<ItemPedidoDTO> itemsPedido,
+                     String direccionEnvio) {
         this.codigo = codigo;
         this.idCliente = idCliente;
         this.itemsPedido = itemsPedido;
